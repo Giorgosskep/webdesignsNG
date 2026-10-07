@@ -1,0 +1,19 @@
+# Personal Claude Code settings (not shared)
+.claude/settings.local.json
+
+# Python cache from skill scripts
+__pycache__/
+*.pyc
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.env
+.env.*

@@ -24,7 +24,6 @@
 
   ΠΕΡΙΕΧΟΜΕΝΟ ΠΡΟΣ ΕΠΙΒΕΒΑΙΩΣΗ ΑΠΟ ΤΗΝ ΠΕΛΑΤΙΣΣΑ
   Όλα τα σημεία με class="ph" είναι προσωρινά (όνομα, τίτλοι, διεύθυνση, τηλέφωνο, email, ωράριο).
-  Η φόρμα επικοινωνίας δεν είναι ακόμη συνδεδεμένη με υπηρεσία αποστολής (βλ. send() στο τέλος).
 -->
 
 <style>
@@ -264,33 +263,10 @@
   .details div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; }
   .details a { text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color .2s ease; }
   .details a:hover { border-color: currentColor; }
-  form { background: var(--marble); color: var(--ink); border-radius: 10px; padding: clamp(1.1rem, 3cqi, 1.75rem); --line: rgba(26, 36, 32, .2); --accent: var(--green); --muted: #4C5752; }
-  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
-  .field { display: flex; flex-direction: column; gap: .3rem; }
-  .field.full { grid-column: 1 / -1; }
-  label { font-size: .85rem; font-weight: 600; }
-  input, textarea {
-    font: inherit; font-size: 1rem; color: var(--ink); width: 100%; min-height: 2.75rem;
-    background: var(--white); border: 1px solid rgba(26, 36, 32, .25); border-radius: 6px; padding: .55rem .75rem;
-    transition: border-color .2s ease;
-  }
-  textarea { min-height: 4.5rem; resize: vertical; }
-  input:hover, textarea:hover { border-color: rgba(26, 36, 32, .5); }
-  input:focus, textarea:focus { outline: 2px solid var(--green); outline-offset: 0; border-color: var(--green); }
-  .error { display: none; color: #A3271B; font-size: .84rem; }
-  .field.invalid input, .field.invalid textarea { border-color: #A3271B; }
-  .field.invalid .error { display: block; }
-  .consent { display: flex; gap: .6rem; align-items: flex-start; font-weight: 400; color: var(--muted); }
-  .consent input { width: 1.15rem; height: 1.15rem; min-height: 0; margin-top: .2rem; flex: none; accent-color: var(--green); }
-  .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1rem; }
-  form .btn { --btn-bg: var(--green); --btn-fg: var(--marble); }
-  .btn.loading { pointer-events: none; opacity: .85; }
-  .btn.loading::after { content: ""; width: .9rem; height: .9rem; margin-left: .6rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.35); border-top-color: currentColor; animation: spin .7s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .form-status { font-size: .9rem; }
-  .form-status.ok { color: #2B5A3F; font-weight: 600; }
+  .contact-big { margin: 0; gap: 1.25rem; }
+  .contact-big div { display: block; }
+  .contact-big dd { font-family: var(--serif); font-size: clamp(1.3rem, 3.4cqi, 2rem); line-height: 1.2; margin-top: .15rem; }
   .legal { margin-top: 1.25rem; font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
-  @container (max-width: 520px) { .fields { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -326,8 +302,7 @@
         </h1>
         <p class="lead a" style="--i:3" data-i18n="hero.lead">Σας συμβουλεύουμε πριν πάρετε μια σημαντική απόφαση και σας εκπροσωπούμε όταν μια διαφορά φτάσει στο δικαστήριο.</p>
         <div class="actions a" style="--i:4">
-          <a class="btn" href="#s8" data-go="7" data-i18n="cta.book">Κλείστε ραντεβού</a>
-          <a class="btn ghost" href="#s3" data-go="2" data-i18n="cta.areas">Τομείς δικαίου</a>
+          <a class="btn" href="#s3" data-go="2" data-i18n="cta.areas">Τομείς δικαίου</a>
         </div>
       </div></div>
     </article>
@@ -429,7 +404,7 @@
           <p class="lead a" style="--i:1" data-i18n="faq.lead">Αν η ερώτησή σας δεν είναι εδώ, πάρτε μας τηλέφωνο.</p>
         </div>
         <dl class="qa">
-          <div class="a" style="--i:2"><dt data-i18n="q1">Πώς ξεκινά η συνεργασία;</dt><dd data-i18n="a1">Ορίζουμε μια πρώτη συνάντηση, ακούμε το θέμα σας και σας λέμε την αμοιβή πριν αναλάβουμε την υπόθεση.</dd></div>
+          <div class="a" style="--i:2"><dt data-i18n="q1">Πώς ξεκινά η συνεργασία;</dt><dd data-i18n="a1">Μας καλείτε ή μας στέλνετε email και ορίζουμε μια πρώτη συνάντηση. Ακούμε το θέμα σας και σας λέμε την αμοιβή πριν αναλάβουμε την υπόθεση.</dd></div>
           <div class="a" style="--i:3"><dt data-i18n="q2">Πώς υπολογίζεται η αμοιβή;</dt><dd data-i18n="a2">Συγκεκριμένο ποσό, ωριαία χρέωση ή συνδυασμός. Τη συμφωνούμε γραπτώς από την αρχή.</dd></div>
           <div class="a" style="--i:4"><dt data-i18n="q3">Μπορούμε να τα πούμε online;</dt><dd data-i18n="a3">Ναι. Ορίζουμε βιντεοκλήση και ανταλλάσσουμε τα έγγραφα ηλεκτρονικά.</dd></div>
           <div class="a" style="--i:5"><dt data-i18n="q4">Είναι εμπιστευτικά όσα σας λέω;</dt><dd data-i18n="a4">Ναι. Καλύπτονται από το δικηγορικό απόρρητο, ακόμη κι αν δεν αναλάβουμε την υπόθεση.</dd></div>
@@ -441,47 +416,16 @@
       <div class="card-inner"><div class="inner split">
         <div>
           <h2 class="title a" data-i18n="contact.title">Ας μιλήσουμε</h2>
-          <p class="lead a" style="--i:1" data-i18n="contact.lead">Γράψτε μας σύντομα το θέμα σας και θα σας καλέσουμε για να ορίσουμε συνάντηση. Ό,τι μας γράψετε μένει εμπιστευτικό.</p>
-          <dl class="details a" style="--i:2">
+          <p class="lead a" style="--i:1" data-i18n="contact.lead">Καλέστε μας ή στείλτε μας email για να ορίσουμε συνάντηση. Ό,τι μας πείτε μένει εμπιστευτικό.</p>
+        </div>
+        <div>
+          <dl class="details contact-big a" style="--i:2">
             <div><dt data-i18n="label.phone">Τηλέφωνο</dt><dd><a class="ph" href="tel:+302100000000">210 000 0000</a></dd></div>
             <div><dt data-i18n="label.email">Email</dt><dd><a class="ph" href="mailto:info@zervou-law.gr">info@zervou-law.gr</a></dd></div>
             <div><dt data-i18n="label.address">Γραφείο</dt><dd class="ph" data-i18n="ph.address">Οδός και αριθμός, Τ.Κ. Πόλη</dd></div>
             <div><dt data-i18n="label.hours">Ωράριο</dt><dd class="ph" data-i18n="ph.hours">Δευτέρα έως Παρασκευή, 09:00 έως 18:00</dd></div>
           </dl>
-        </div>
-        <div class="a" style="--i:3">
-          <form id="contact-form" novalidate>
-            <div class="fields">
-              <div class="field">
-                <label for="f-name" data-i18n="f.name">Ονοματεπώνυμο</label>
-                <input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
-                <span class="error" id="e-name" data-i18n="e.name">Συμπληρώστε το ονοματεπώνυμό σας.</span>
-              </div>
-              <div class="field">
-                <label for="f-phone" data-i18n="f.phone">Τηλέφωνο</label>
-                <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-              </div>
-              <div class="field full">
-                <label for="f-email" data-i18n="f.email">Email</label>
-                <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
-                <span class="error" id="e-email" data-i18n="e.email">Συμπληρώστε ένα έγκυρο email, π.χ. onoma@example.gr.</span>
-              </div>
-              <div class="field full">
-                <label for="f-msg" data-i18n="f.msg">Τι αφορά το θέμα σας;</label>
-                <textarea id="f-msg" name="message" required maxlength="1000" aria-describedby="e-msg"></textarea>
-                <span class="error" id="e-msg" data-i18n="e.msg">Γράψτε μας σε λίγες γραμμές το θέμα σας.</span>
-              </div>
-              <div class="field full">
-                <label class="consent"><input type="checkbox" name="consent" required aria-describedby="e-consent"><span data-i18n="f.consent">Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου μόνο για να απαντήσετε στο αίτημά μου.</span></label>
-                <span class="error" id="e-consent" data-i18n="e.consent">Χρειάζεται η συγκατάθεσή σας για να σας απαντήσουμε.</span>
-              </div>
-            </div>
-            <div class="form-foot">
-              <button class="btn" type="submit"><span data-i18n="f.submit">Στείλτε το μήνυμα</span></button>
-              <p class="form-status" role="status" aria-live="polite"></p>
-            </div>
-          </form>
-          <p class="legal"><span>© <span id="year">2026</span> <span data-i18n="foot.rights">Ζέρβου &amp; Συνεργάτες Δικηγορική Εταιρεία</span></span><a href="#" data-i18n="foot.privacy">Πολιτική απορρήτου</a></p>
+          <p class="legal a" style="--i:3"><span>© <span id="year">2026</span> <span data-i18n="foot.rights">Ζέρβου &amp; Συνεργάτες Δικηγορική Εταιρεία</span></span><a href="#" data-i18n="foot.privacy">Πολιτική απορρήτου</a></p>
         </div>
       </div></div>
     </article>
@@ -506,7 +450,7 @@
   var en = {
     "skip": "Skip to content", "mono": "Z", "brand": "Zervou &amp; Partners",
     "pill.firm": "The firm", "pill.contact": "Contact", "ui.hint": "Scroll",
-    "cta.book": "Book a meeting", "cta.areas": "Practice areas",
+    "cta.areas": "Practice areas",
     "ch1": "Home", "ch2": "Approach", "ch3": "Civil law", "ch4": "Commercial law",
     "ch5": "How we work", "ch6": "Our people", "ch7": "Questions", "ch8": "Contact",
     "kicker": "A law firm for civil and commercial law",
@@ -544,18 +488,14 @@
     "t2.name": "Full name", "t2.role": "Lawyer, associate", "t2.bio": "Area of focus and short biography.",
     "t3.name": "Full name", "t3.role": "Lawyer, associate", "t3.bio": "Area of focus and short biography.",
     "faq.title": "What people usually ask", "faq.lead": "If your question is not here, give us a call.",
-    "q1": "How do we start?", "a1": "We arrange a first meeting, listen to your matter and tell you the fee before we take on the case.",
+    "q1": "How do we start?", "a1": "Call or email us and we arrange a first meeting. We listen to your matter and tell you the fee before we take on the case.",
     "q2": "How are fees calculated?", "a2": "A fixed amount, an hourly rate or a combination. We agree it in writing at the start.",
     "q3": "Can we talk online?", "a3": "Yes. We arrange a video call and exchange documents electronically.",
     "q4": "Is what I tell you confidential?", "a4": "Yes. It is covered by legal professional privilege, even if we do not take the case.",
     "contact.title": "Let's talk",
-    "contact.lead": "Tell us briefly about your matter and we will call you to arrange a meeting. Whatever you write stays confidential.",
+    "contact.lead": "Call or email us to arrange a meeting. Whatever you tell us stays confidential.",
     "label.phone": "Phone", "label.email": "Email", "label.address": "Office", "label.hours": "Office hours",
     "ph.address": "Street and number, postcode, city", "ph.hours": "Monday to Friday, 09:00 to 18:00",
-    "f.name": "Full name", "f.phone": "Phone", "f.email": "Email", "f.msg": "What is your matter about?",
-    "f.consent": "I agree that my details will be used only to reply to my request.", "f.submit": "Send the message",
-    "e.name": "Enter your full name.", "e.email": "Enter a valid email, e.g. name@example.com.",
-    "e.msg": "Tell us about your matter in a few lines.", "e.consent": "We need your consent to reply to you.",
     "foot.rights": "Zervou &amp; Partners Law Firm", "foot.privacy": "Privacy policy"
   };
   var el = {
@@ -564,10 +504,8 @@
   };
   var ui = {
     el: { of: " από ", dock: "Οθόνες", pill: "Από την αρχή ως την επικοινωνία", home: "Ζέρβου & Συνεργάτες, αρχή",
-          sent: "Ευχαριστούμε. Λάβαμε το μήνυμά σας και θα σας καλέσουμε σύντομα.", fix: "Διορθώστε τα πεδία που επισημαίνονται.",
           title: document.title, desc: document.querySelector('meta[name="description"]').content },
     en: { of: " of ", dock: "Screens", pill: "From the start to contact", home: "Zervou & Partners, home",
-          sent: "Thank you. We have received your message and will call you soon.", fix: "Please correct the highlighted fields.",
           title: "Zervou & Partners | Law Firm", desc: "Zervou & Partners: a law firm focused on civil and commercial law." }
   };
 
@@ -608,8 +546,6 @@
       c.setAttribute("aria-label", (i + 1) + ui[l].of + n + ": " + name);
       chapterLinks[i].textContent = name;
     });
-    var st = document.querySelector(".form-status");
-    if (st.dataset.key) st.textContent = ui[l][st.dataset.key];
     try { localStorage.setItem("zervou-lang", l); } catch (e) {}
   }
   document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang); }); });
@@ -758,35 +694,6 @@
     setLang(saved === "en" ? "en" : "el");
   }
 
-  // ---------- Contact form ----------
-  // TODO: connect to a form service (e.g. Formspree) or the hosting provider's mail handler.
-  // Replace send() with the real request; it must return a Promise.
-  function send(data) { return new Promise(function (resolve) { setTimeout(resolve, 700); }); }
-  var form = document.getElementById("contact-form");
-  var statusEl = form.querySelector(".form-status");
-  var submitBtn = form.querySelector('button[type="submit"]');
-  function check(input) {
-    var ok = input.type === "checkbox" ? input.checked : input.checkValidity() && input.value.trim() !== "";
-    input.closest(".field").classList.toggle("invalid", !ok);
-    input.setAttribute("aria-invalid", String(!ok));
-    return ok;
-  }
-  form.querySelectorAll("[required]").forEach(function (i) {
-    i.addEventListener("blur", function () { if (i.value || i.type === "checkbox") check(i); });
-    i.addEventListener("input", function () { if (i.closest(".field").classList.contains("invalid")) check(i); });
-  });
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var first = null;
-    form.querySelectorAll("[required]").forEach(function (i) { if (!check(i) && !first) first = i; });
-    if (first) { statusEl.className = "form-status"; statusEl.dataset.key = "fix"; statusEl.textContent = ui[lang].fix; first.focus(); return; }
-    submitBtn.classList.add("loading"); submitBtn.setAttribute("aria-busy", "true");
-    send(new FormData(form)).then(function () {
-      submitBtn.classList.remove("loading"); submitBtn.removeAttribute("aria-busy");
-      statusEl.className = "form-status ok"; statusEl.dataset.key = "sent"; statusEl.textContent = ui[lang].sent;
-      form.reset();
-    });
-  });
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
 </script>
